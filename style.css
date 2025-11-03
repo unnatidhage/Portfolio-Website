@@ -1,0 +1,243 @@
+/*
+ * MODIFIED style.css
+ * Focus: Attraction, Visual Depth, Modern Typography, and Aesthetics
+ * Changes: Dark Mode Palette, Gradient Accents, Enhanced Typography, Box Shadows.
+ */
+
+/* 1. CSS Variables and Global Reset (Dark Mode Theme) */
+:root {
+    --primary-color: #00bcd4; /* Cyan/Turquoise Accent */
+    --secondary-color: #ffaa22; /* yellow Accent */
+    --background-color: #121212; /* Dark Mode Background */
+    --surface-color: #1e1e1e; /* Darker Surface for Cards/Sections */
+    --text-color: #e0e0e0; /* Light Gray Text */
+    --header-color: #242424; /* Slightly different dark header */
+    --font-family: 'Poppins', sans-serif; /* Modern, professional font */
+    --header-height: 70px;
+    --transition-speed: 0.3s;
+}
+
+/* Import Google Font for better typography */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: var(--font-family);
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    scroll-behavior: smooth;
+    text-rendering: optimizeLegibility;
+}
+
+a { 
+    color: var(--primary-color); 
+    text-decoration: none; 
+    transition: all var(--transition-speed) ease;
+}
+a:hover { 
+    color: var(--secondary-color);
+    text-shadow: 0 0 5px var(--primary-color); /* Subtle glow effect */
+}
+
+/* 2. Header and Navigation (Fixed and Styled) */
+.header {
+    background-color: var(--header-color);
+    padding: 0 5%;
+    height: var(--header-height);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Deep shadow for depth */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo { 
+    font-size: 2rem; 
+    font-weight: 700; 
+    letter-spacing: 1px;
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; /* Gradient text effect */
+}
+.navbar a { 
+    font-size: 1.05rem; 
+    padding: 0 1.2rem; 
+    font-weight: 400;
+    text-transform: uppercase;
+}
+.navbar a:hover {
+    font-weight: 600;
+}
+.menu-icon { display: none; font-size: 1.8rem; cursor: pointer; color: var(--primary-color); }
+
+/* 3. Section Styling */
+.section { 
+    padding: 100px 5%; /* Increased padding */
+    max-width: 1300px; 
+    margin: 0 auto; 
+}
+h2 {
+    font-size: 3rem; 
+    text-align: center; 
+    margin-bottom: 60px;
+    font-weight: 700;
+    color: #fff;
+    position: relative;
+}
+h2::after { /* Underline effect with gradient */
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    border-radius: 2px;
+}
+
+/* 4. Hero Section (High Impact) */
+.hero-section {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 150px 5%; max-width: 1300px; margin: 0 auto; gap: 60px;
+    min-height: calc(100vh - var(--header-height));
+}
+.hero-content { max-width: 600px; }
+.greeting { font-size: 1.2rem; color: var(--primary-color); font-weight: 600; }
+.hero-content h1 { 
+    font-size: 5rem; 
+    line-height: 1.1; 
+    margin: 10px 0;
+    background: linear-gradient(45deg, #ffffff, var(--primary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.role { font-size: 1.8rem; color: var(--secondary-color); font-weight: 400; margin-bottom: 20px; }
+.bio { font-size: 1.1rem; color: #b0b0b0; }
+
+.hero-image { position: relative; }
+.hero-image img {
+    width: 100%; max-width: 350px; height: auto; border-radius: 50%;
+    object-fit: cover; 
+    border: 5px solid var(--primary-color);
+    box-shadow: 0 0 40px rgba(0, 188, 212, 0.4); /* Glowing effect */
+}
+.social-links { margin-top: 30px; }
+.social-links a { 
+    display: inline-block; 
+    margin-right: 20px; 
+    padding: 10px 20px;
+    border: 2px solid var(--primary-color);
+    border-radius: 50px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+.social-links a:hover {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    box-shadow: 0 0 15px rgba(0, 188, 212, 0.6);
+}
+
+/* 5. Skills Section (Layout using Grid) */
+.skills-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px;
+}
+.skill-card {
+    background: var(--surface-color); 
+    padding: 30px; 
+    border-radius: 12px;
+    border-left: 5px solid var(--primary-color);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+    transition: transform var(--transition-speed);
+}
+.skill-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 20px rgba(0, 188, 212, 0.2);
+}
+.skill-card h3 { color: var(--primary-color); margin-bottom: 10px; font-weight: 600; }
+.skill-card p { color: #a0a0a0; }
+.skill-card strong { color: #fff; }
+
+/* 6. Projects Section */
+.project-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px;
+}
+.project-card {
+    background: var(--surface-color); 
+    padding: 25px; 
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4); 
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+.project-card:hover { 
+    transform: scale(1.02); 
+    box-shadow: 0 10px 20px rgba(222, 171, 30, 0.3);
+}
+.project-card h3 { color: var(--secondary-color); margin-bottom: 10px; font-weight: 600; }
+.project-description { color: #ccc; margin-bottom: 15px; }
+.project-tech { color: var(--primary-color); font-style: italic; margin-bottom: 15px; }
+.project-links a { 
+    margin-right: 15px; 
+    font-weight: 600; 
+    border-bottom: 2px dotted var(--primary-color);
+}
+
+/* 7. Education & Awards */
+.education-card, .awards-card {
+    background: var(--surface-color);
+    padding: 30px;
+    border-radius: 12px;
+    margin: 20px auto;
+    max-width: 800px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+.education-card h3, .awards-card h3 { color: var(--primary-color); margin-bottom: 10px; }
+.institution, .date { color: #a0a0a0; margin-bottom: 5px; }
+.awards-card ul { list-style: disc; padding-left: 20px; }
+
+/* 8. Footer */
+.footer { 
+    background-color: var(--header-color); 
+    color: #fff; 
+    text-align: center; 
+    padding: 50px 5%; 
+    border-top: 3px solid var(--primary-color);
+}
+.footer h3 { 
+    font-size: 2rem; 
+    color: var(--secondary-color); 
+    margin-bottom: 15px;
+}
+.footer p { color: #ccc; margin-bottom: 10px; }
+.footer a { color: var(--primary-color); font-weight: bold; }
+
+/* 9. Responsiveness (Ensuring Mobile Quality) */
+@media (max-width: 900px) {
+    .hero-section { flex-direction: column; text-align: center; padding-top: 80px; }
+    .hero-image { order: -1; margin-bottom: 30px; }
+    .hero-content h1 { font-size: 4rem; }
+    .role { font-size: 1.5rem; }
+}
+
+@media (max-width: 768px) {
+    /* Mobile Navigation Setup */
+    .navbar {
+        position: absolute; top: var(--header-height); left: 0; width: 100%;
+        background-color: var(--header-color); 
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        display: none; flex-direction: column;
+    }
+    .navbar.active { display: flex; }
+    .navbar a { 
+        padding: 15px 20px; 
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
+        text-align: center; 
+    }
+    .menu-icon { display: block; }
+
+    h2 { font-size: 2.5rem; }
+}
