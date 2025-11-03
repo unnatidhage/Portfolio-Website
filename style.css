@@ -126,6 +126,10 @@ h2::after { /* Underline effect with gradient */
     border: 5px solid var(--primary-color);
     box-shadow: 0 0 40px rgba(0, 188, 212, 0.4); /* Glowing effect */
 }
+.hero-image img:hover{
+    box-shadow: 0 0 120px rgba(0, 188, 212, 0.6); /* Glowing effect */
+    transform: scale3d(1.5, 1.5, 0.3) ;
+}
 .social-links { margin-top: 30px; }
 .social-links a { 
     display: inline-block; 
@@ -240,4 +244,5 @@ h2::after { /* Underline effect with gradient */
     .menu-icon { display: block; }
 
     h2 { font-size: 2.5rem; }
+
 }
